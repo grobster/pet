@@ -5,6 +5,7 @@ class Feeder(var waterLevel: Double, var foodLevel: Double) {
 	var emptyFoodSensor = Sensor("No food sensor", false)
 	var lowWaterSensor = Sensor("low water sensor", false)
 	var emptyWaterSensor = Sensor("no water sensor", false)
+	var foodDoorSensor = Sensor("food door sensor", false)
 	
 	def feed(amountFood: Double, amountWater: Double): (Double, Double) = {
 		//measure amount to feed
