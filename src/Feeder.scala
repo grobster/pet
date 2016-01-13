@@ -39,6 +39,8 @@ class Feeder(var waterLevel: Double, var foodLevel: Double) {
 	def monitorLevels = {
 		//if water level is below threshold send alert
 		if(waterLevel <= 0.0) sendAlert("Out of Water")
+		if(emptyWaterSensor.on == true) sendAlert("from sensor: " + "Out of Water")
+		if(lowWaterSensor.on == true) sendAlert("from sensor: " + "Low Water")
 		else if(waterLevel < 5.0) sendAlert("Low Water")
 		
 		if(foodLevel <= 0.0) sendAlert("Out of Food")
@@ -59,8 +61,8 @@ class Feeder(var waterLevel: Double, var foodLevel: Double) {
 
 object Feeder {
 	def main(args: Array[String]): Unit = {
-		val feeder = new Feeder(100.0, 100.0)
-		feeder.feed(1.0, 2.0)
+		val feeder = new Feeder(0.0, 0.0)
+		feeder.feed(2.0, 5.0)
 		val testSensor = Sensor("test", false)
 	}
 }
