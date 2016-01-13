@@ -64,4 +64,4 @@ object Feeder {
 	}
 }
 
-case class Sensor(name: String, on: Boolean)
+case class Sensor(name: String, var on: Boolean)
