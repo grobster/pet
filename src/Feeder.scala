@@ -1,10 +1,10 @@
 class Feeder(var waterLevel: Double, var foodLevel: Double) {
 	var amountFoodFeed = 2.0
 	var amountWaterFeed = 5.0
-	var lowFoodSensor = Sensor(false)
-	var emptyFoodSensor = Sensor(false)
-	var lowWaterSensor = Sensor(false)
-	var emptyWaterSensor = Sensor(false)
+	var lowFoodSensor = Sensor("Low Food Sensor", false)
+	var emptyFoodSensor = Sensor("No food sensor", false)
+	var lowWaterSensor = Sensor("low water sensor", false)
+	var emptyWaterSensor = Sensor("no water sensor", false)
 	
 	def feed(amountFood: Double, amountWater: Double): (Double, Double) = {
 		//measure amount to feed
@@ -60,8 +60,8 @@ object Feeder {
 	def main(args: Array[String]): Unit = {
 		val feeder = new Feeder(100.0, 100.0)
 		feeder.feed(1.0, 2.0)
-		val testSensor = Sensor(false)
+		val testSensor = Sensor("test", false)
 	}
 }
 
-case class Sensor(on: Boolean)
+case class Sensor(name: String, on: Boolean)
